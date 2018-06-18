@@ -120,7 +120,9 @@ public class ProveedorController {
 			return "redirect:/proveedor/listar";
 		}
 		model.addAttribute("proveedor", proveedor);
+		model.addAttribute("nombre", proveedor.getRazonSocial());
+		model.addAttribute("persona", proveedor.getPersonaContacto());
 		
-		return null;
+		return "proveedor/detalle";
 	}
 }

@@ -101,7 +101,7 @@
               
               <tbody>
                 <tr th:each="proveedor: ${proveedores}">
-                	<td><a class="btn btn-link"
+                	<td><a class="btn btn-link" th:href="@{/proveedor/detalle/} + ${proveedor.idProveedor}"
 							th:text="${proveedor.idProveedor}"></a></td>
 							<td th:text="${proveedor.razonSocial}"></td>
 							<td th:text="${proveedor.ruc}"></td>
