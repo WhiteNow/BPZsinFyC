@@ -3,6 +3,7 @@ package pe.edu.bpz.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -18,6 +19,7 @@ import pe.edu.bpz.model.entity.Users;
 @Service
 public class JpaUserDetailsService implements UserDetailsService{
 
+	@Autowired
 	private UserRepository userRepository;
 	
 	@Override
