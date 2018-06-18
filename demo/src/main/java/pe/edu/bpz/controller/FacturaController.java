@@ -9,6 +9,8 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
+import org.springframework.context.annotation.Role;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +38,7 @@ public class FacturaController {
 	@Autowired
 	private IFacturaService fService;
 	
+	
 	@GetMapping(value = "/listar")
 	public String listar(Model model){
 		model.addAttribute("titulo", "Listado de Facturas");
@@ -43,6 +46,7 @@ public class FacturaController {
 		return "listarFacturas";	
 	}
 	
+	@Secured("ROLE_CUENTAS")
 	@GetMapping(value = "/crear")
 	public String crear(Model model) {
 		FacturaViewModel facturaViewModel = new FacturaViewModel();
@@ -54,6 +58,7 @@ public class FacturaController {
 		return "crearFactura";
 	}
 	
+	@Secured("ROLE_CUENTAS")
 	@SuppressWarnings("deprecation")
 	@PostMapping(value="/crear")
 	public String guardar(@Valid FacturaViewModel facturaViewModel, BindingResult result,Model model, RedirectAttributes flash,
@@ -86,7 +91,7 @@ public class FacturaController {
 		return "redirect:/factura/listar";
 	}
 	
-	
+	@Secured("ROLE_CUENTAS")
 	@RequestMapping(value = "/crear/{id}")
 	public String editar(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash) {
 

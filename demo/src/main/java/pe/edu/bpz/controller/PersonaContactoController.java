@@ -3,6 +3,7 @@ package pe.edu.bpz.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -36,6 +37,7 @@ public class PersonaContactoController {
 	}
 	
 
+	@Secured("ROLE_CUENTAS")
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 
@@ -50,6 +52,8 @@ public class PersonaContactoController {
 
 		return "redirect:/persona/listar";
 	}
+	
+	@Secured("ROLE_CUENTAS")
 	@GetMapping("/editar/{id}")
 	public String editar(@PathVariable(value = "id") Long id, Model model) {
 
@@ -59,6 +63,7 @@ public class PersonaContactoController {
 		model.addAttribute("titulo", "Editar");
 		return "editarPersonaContacto";
 	}
+	@Secured("ROLE_CUENTAS")
 	@PostMapping(value="/editar")
 	public String guardar(@Valid PersonaContacto persona, BindingResult result,Model model, RedirectAttributes flash,
 			SessionStatus status) {
