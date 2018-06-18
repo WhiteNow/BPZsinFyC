@@ -9,7 +9,7 @@
   <meta name="author" content="">
   <title>BPZ Admin Page</title>
  
-  <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+ <link th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
   
   <link th:href="@{/vendor/font-awesome/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
   
@@ -75,56 +75,29 @@
       </ul>
     </div>
   </nav>
+ 
   <div class="content-wrapper">
     <div class="container-fluid">
       <!-- Breadcrumbs-->
       <ol class="breadcrumb">
-        <li class="breadcrumb-item active" th:text="${titulo}"></li>
+        <li class="breadcrumb-item active"></li>
       </ol>
 
       
-    <div class="card mb-3">
-        <div class="card-header">
-          <i class="fa fa-table"></i> Proveedores</div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-              <thead>
-                <tr>
-                	<th>id</th>
-					<th>Razon Social</th>
-					<th>RUC</th>
-					<th>editar</th>
-					<th>eliminar</th>
-                </tr>
-              </thead>
-              
-              <tbody>
-                <tr th:each="proveedor: ${proveedores}">
-                	<td><a class="btn btn-link" th:href="@{/proveedor/detalle/} + ${proveedor.idProveedor}"
-							th:text="${proveedor.idProveedor}"></a></td>
-							<td th:text="${proveedor.razonSocial}"></td>
-							<td th:text="${proveedor.ruc}"></td>
-							<td><a class="btn btn btn-outline-warning btn-sm"
-								th:href="@{/proveedor/editar/} + ${proveedor.idProveedor}" th:text="'editar'"
-								></a></td>
-							<td><a class="btn btn-outline-danger btn-sm"
-								th:href="@{/proveedor/eliminar/} + ${proveedor.idProveedor}" th:text="'eliminar'"
-								onclick="return confirm('Estas seguro que quieres eliminar?');"></a></td>
-								
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <a th:href="@{/proveedor/crear/}" class="btn btn-outline-success">Agregar Proveedor</a>
-        </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card mb-3">
+   
       </div>
      
    
     </div>
     
-  
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © BPZ 2018</small>
+        </div>
+      </div>
+   </footer>
     
     <a class="scroll-to-top rounded" href="#page-top">
       <i class="fa fa-angle-up"></i>
@@ -147,7 +120,8 @@
         </div>
       </div>
     </div>
-  	    <!-- Bootstrap core JavaScript-->
+   
+    <!-- Bootstrap core JavaScript-->
     <script th:src="@{/vendor/jquery/jquery.min.js}"></script>
     <script th:src="@{/vendor/bootstrap/js/bootstrap.bundle.min.js}"></script>
     <!-- Core plugin JavaScript-->
@@ -161,6 +135,7 @@
     <!-- Custom scripts for this page-->
     <script th:src="@{/js/sb-admin-datatables.min.js}"></script>
     <script th:src="@{/js/sb-admin-charts.min.js}"></script>
+     
   </div>
 </body>
 
