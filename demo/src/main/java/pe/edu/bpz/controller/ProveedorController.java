@@ -56,7 +56,7 @@ public class ProveedorController {
 			SessionStatus status) {
 		if(result.hasErrors()) {
 			model.addAttribute("titulo", "Formulario de Proveedor");
-			return "formPersonaProveedor";
+			return "proveedor/crear";
 		}
 		
 		pCService.save(contenedor.getPersonacontacto());
